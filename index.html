@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旅のしおり｜東海オープン観戦ツアー 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a2744;
+    --blue: #2356a8;
+    --accent: #e8a020;
+    --accent-light: #fff3d6;
+    --bg: #f5f7fc;
+    --white: #ffffff;
+    --text: #1a2744;
+    --muted: #6b7a99;
+    --border: #d4dced;
+    --green: #2e7d52;
+    --green-light: #e8f5ee;
+  }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); }
+
+  /* HERO */
+  .hero { background: var(--navy); padding: 2.5rem 2rem 2rem; position: relative; overflow: hidden; }
+  .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:220px; height:220px; border:40px solid rgba(255,255,255,0.04); border-radius:50%; }
+  .hero::after { content:''; position:absolute; bottom:-40px; left:30%; width:140px; height:140px; border:28px solid rgba(232,160,32,0.12); border-radius:50%; }
+  .hero-eyebrow { font-size:15px; letter-spacing:0.15em; color:var(--accent); text-transform:uppercase; margin-bottom:0.5rem; font-weight:500; }
+  .hero-title { font-family:'Bebas Neue',sans-serif; font-size:54px; color:#fff; line-height:1; letter-spacing:0.04em; }
+  .hero-subtitle { font-size:18px; color:rgba(255,255,255,0.6); margin-top:0.4rem; }
+  .hero-meta { display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap; }
+  .hero-badge { background:rgba(255,255,255,0.08); border:0.5px solid rgba(255,255,255,0.15); border-radius:20px; padding:8px 16px; font-size:17px; color:rgba(255,255,255,0.85); display:flex; align-items:center; gap:6px; }
+
+  /* MEMBERS */
+  .members-bar { background:var(--accent); padding:0.9rem 2rem; display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; }
+  .members-label { font-size:14px; font-weight:700; letter-spacing:0.1em; color:var(--navy); text-transform:uppercase; }
+  .member-chip { background:rgba(255,255,255,0.35); border-radius:20px; padding:6px 16px; font-size:17px; font-weight:500; color:var(--navy); }
+
+  /* DAY SECTION */
+  .day-section { padding: 0 1.5rem 2rem; }
+  .day-header { display:flex; align-items:center; gap:1rem; padding:1.5rem 0 1rem; border-bottom:2px solid var(--navy);
