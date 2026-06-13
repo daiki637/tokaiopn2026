@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -39,4 +40,417 @@
 
   /* DAY SECTION */
   .day-section { padding: 0 1.5rem 2rem; }
-  .day-header { display:flex; align-items:center; gap:1rem; padding:1.5rem 0 1rem; border-bottom:2px solid var(--navy);
+  .day-header { display:flex; align-items:center; gap:1rem; padding:1.5rem 0 1rem; border-bottom:2px solid var(--navy); margin-bottom:1.25rem; }
+  .day-num { font-family:'Bebas Neue',sans-serif; font-size:60px; line-height:1; color:var(--navy); }
+  .day-label { font-size:14px; font-weight:700; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; }
+  .day-date { font-size:24px; font-weight:700; color:var(--navy); }
+
+  /* TIMELINE */
+  .timeline { position:relative; padding-left:2.5rem; }
+  .timeline::before { content:''; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:var(--border); }
+  .tl-item { position:relative; margin-bottom:1rem; }
+  .tl-dot { position:absolute; left:-2.5rem; top:6px; width:16px; height:16px; border-radius:50%; background:var(--white); border:2.5px solid var(--border); z-index:1; }
+  .tl-item.highlight .tl-dot { border-color:var(--accent); background:var(--accent); width:18px; height:18px; top:5px; left:calc(-2.5rem - 1px); }
+  .tl-item.main-event .tl-dot { border-color:var(--blue); background:var(--blue); width:18px; height:18px; top:5px; left:calc(-2.5rem - 1px); }
+  .tl-card { background:var(--white); border:0.5px solid var(--border); border-radius:10px; padding:13px 16px; }
+  .tl-item.highlight .tl-card { border-color:var(--accent); background:var(--accent-light); }
+  .tl-item.main-event .tl-card { border-color:var(--blue); background:#eef3fb; }
+  .tl-time { font-size:18px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+  .tl-item.highlight .tl-time { color:#9a6800; }
+  .tl-item.main-event .tl-time { color:var(--blue); }
+  .tl-place { font-size:20px; font-weight:700; color:var(--text); line-height:1.4; }
+  .tl-note { font-size:16px; color:var(--muted); margin-top:3px; line-height:1.6; }
+  .tl-item.main-event .tl-note { color:var(--blue); font-weight:500; }
+
+  /* PACKING LIST */
+  .pack-section { padding: 0 1.5rem 2rem; }
+  .pack-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; padding-top:1.5rem; }
+  .pack-title { font-size:22px; font-weight:700; color:var(--navy); }
+  .pack-day-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  @media (max-width:520px) { .pack-day-grid { grid-template-columns:1fr; } }
+  .pack-card { background:var(--white); border:0.5px solid var(--border); border-radius:12px; overflow:hidden; }
+  .pack-card-head { background:var(--navy); color:#fff; font-size:17px; font-weight:700; padding:10px 16px; letter-spacing:0.05em; }
+  .pack-list { list-style:none; padding:10px 16px; }
+  .pack-list li { display:flex; align-items:flex-start; gap:10px; font-size:18px; padding:8px 0; border-bottom:0.5px solid var(--border); line-height:1.6; color:var(--text); }
+  .pack-list li:last-child { border-bottom:none; }
+  .pack-list li::before { content:'□'; color:var(--muted); font-size:18px; flex-shrink:0; margin-top:2px; }
+  .pack-list li.important::before { content:'★'; color:var(--accent); }
+  .pack-list li.heart::before { content:'♡'; color:#c93030; }
+
+  /* COST */
+  .cost-bar { margin: 0 1.5rem 1.5rem; background:var(--accent-light); border:1px solid var(--accent); border-radius:10px; padding:14px 18px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .cost-label { font-size:17px; color:#9a6800; font-weight:700; }
+  .cost-amount { font-family:'Bebas Neue',sans-serif; font-size:36px; color:var(--accent); line-height:1; }
+  .cost-note { font-size:16px; color:#9a6800; }
+
+  /* DIVIDER */
+  .day-divider { height:6px; background:var(--navy); margin:0 -1.5rem; }
+  .icon-strip { display:flex; justify-content:center; gap:6px; padding:0.6rem 0; background:var(--navy); font-size:22px; }
+
+  /* FOOTER */
+  .footer { background:var(--navy); color:rgba(255,255,255,0.5); text-align:center; font-size:16px; padding:1.25rem; letter-spacing:0.05em; }
+
+  /* SECOND PLAN */
+  .second-plan { margin: 0.5rem 0 1rem; background: #f3f0fa; border: 1.5px dashed #7c5cbf; border-radius: 12px; padding: 14px 16px 16px; }
+  .second-plan-label { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; color: #7c5cbf; text-transform: uppercase; margin-bottom: 8px; }
+  .second-plan-title { font-size: 18px; font-weight: 700; color: #4a2e8c; margin-bottom: 8px; }
+  .second-plan .timeline { padding-left: 1.75rem; }
+  .second-plan .timeline::before { left: 6px; }
+  .second-plan .tl-item { margin-bottom: 0.6rem; }
+  .second-plan .tl-dot { left: -1.75rem; border-color: #b39ddb; }
+  .second-plan .tl-card { background: white; border-color: #c5b8e8; }
+  .second-plan .tl-item.highlight .tl-card { background: #ede7f6; border-color: #7c5cbf; }
+  .second-plan .tl-item.highlight .tl-dot { background: #7c5cbf; border-color: #7c5cbf; }
+  .second-plan .tl-item.highlight .tl-time { color: #4a2e8c; }
+
+  @media print {
+    body { background:white; }
+    .hero,.members-bar,.day-divider,.footer,.icon-strip,.pack-card-head { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">旅のしおり 2026</p>
+  <h1 class="hero-title">東海オープン<br>観戦ツアー</h1>
+  <p class="hero-subtitle">ボウリングトーナメント ／ アソビックスあさひ</p>
+  <div class="hero-meta">
+    <span class="hero-badge">📅 6月27日（土）〜 28日（日）</span>
+    <span class="hero-badge">📍 アソビックスあさひ</span>
+    <span class="hero-badge">👥 4名</span>
+  </div>
+</div>
+
+<!-- MEMBERS -->
+<div class="members-bar">
+  <span class="members-label">参加メンバー</span>
+  <span class="member-chip">🚗 だいちゃん（運転）</span>
+  <span class="member-chip">しえちゃん</span>
+  <span class="member-chip">とよちゃん</span>
+  <span class="member-chip">さのちゃん</span>
+</div>
+
+<!-- DAY 1 -->
+<div class="day-section">
+  <div class="day-header">
+    <div class="day-num">01</div>
+    <div class="day-info">
+      <p class="day-label">Day 1</p>
+      <p class="day-date">6月27日（土）</p>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">06:50</p>
+        <p class="tl-place">だいちゃんの家 出発</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">07:05</p>
+        <p class="tl-place">しえちゃんの家 着 → すぐ出発</p>
+      </div>
+    </div>
+    <div class="tl-item highlight">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">07:20</p>
+        <p class="tl-place">ボウルアロー八尾 着</p>
+        <p class="tl-note">とよちゃん・さのちゃん合流 🎳</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">08:20</p>
+        <p class="tl-place">針テラス 着</p>
+        <p class="tl-note">10分休憩 ☕</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">08:30</p>
+        <p class="tl-place">針テラス 出発</p>
+      </div>
+    </div>
+    <div class="tl-item highlight">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">09:30</p>
+        <p class="tl-place">アソビックスあさひ 着</p>
+      </div>
+    </div>
+    <div class="tl-item main-event">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">10:00 〜 18:15</p>
+        <p class="tl-place">🎳 東海オープン 観戦</p>
+        <p class="tl-note">競技終了まで全力応援！</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">18:45</p>
+        <p class="tl-place">アソビックスあさひ 出発</p>
+      </div>
+    </div>
+    <div class="tl-item highlight">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">19:00</p>
+        <p class="tl-place">とも舎 🍽️ 夕ごはん</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">20:00</p>
+        <p class="tl-place">とも舎 出発</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">22:45 頃</p>
+        <p class="tl-place">ボウルアロー八尾 着 — 解散</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="day-divider"></div>
+<div class="icon-strip"><span>🎳</span><span>🎳</span><span>🎳</span></div>
+<div class="day-divider"></div>
+
+<!-- DAY 2 -->
+<div class="day-section">
+  <div class="day-header">
+    <div class="day-num">02</div>
+    <div class="day-info">
+      <p class="day-label">Day 2</p>
+      <p class="day-date">6月28日（日）</p>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">06:20</p>
+        <p class="tl-place">だいちゃんの家 出発</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">06:35</p>
+        <p class="tl-place">しえちゃんの家 着 → すぐ出発</p>
+      </div>
+    </div>
+    <div class="tl-item highlight">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">06:50</p>
+        <p class="tl-place">ボウルアロー八尾 着</p>
+        <p class="tl-note">とよちゃん・さのちゃん合流 🎳</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">07:50</p>
+        <p class="tl-place">針テラス 着</p>
+        <p class="tl-note">10分休憩 ☕</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">08:00</p>
+        <p class="tl-place">針テラス 出発</p>
+      </div>
+    </div>
+    <div class="tl-item highlight">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">09:00</p>
+        <p class="tl-place">アソビックスあさひ 着</p>
+      </div>
+    </div>
+    <div class="tl-item main-event">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">〜 19:20</p>
+        <p class="tl-place">🎳 東海オープン 観戦</p>
+        <p class="tl-note">トーナメント最終日！全力応援！</p>
+      </div>
+    </div>
+
+    <!-- SECOND PLAN -->
+    <div class="second-plan">
+      <p class="second-plan-label">🔀 セカンドプラン（万が一バージョン）</p>
+      <p class="second-plan-title">準決勝で満足したら早めに動く！</p>
+      <div class="timeline">
+        <div class="tl-item highlight">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <p class="tl-time">13:00</p>
+            <p class="tl-place">準決勝終了 → 満足したら撤収！</p>
+          </div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <p class="tl-time">13:15 〜 14:15</p>
+            <p class="tl-place">🥢 八慶（中華料理）ランチ</p>
+            <p class="tl-note">四日市市大矢知 ／ 約1時間</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <p class="tl-time">14:15</p>
+            <p class="tl-place">八慶 出発</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <p class="tl-time">15:15</p>
+            <p class="tl-place">針テラス 着</p>
+            <p class="tl-note">10分休憩 ☕</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <p class="tl-time">15:25</p>
+            <p class="tl-place">針テラス 出発</p>
+          </div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <p class="tl-time">16:25 頃</p>
+            <p class="tl-place">ボウルアロー八尾 着 — 解散</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">19:30</p>
+        <p class="tl-place">アソビックスあさひ 出発</p>
+      </div>
+    </div>
+    <div class="tl-item highlight">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">19:45</p>
+        <p class="tl-place">御在所SA 着 🍽️</p>
+        <p class="tl-note">夕ごはん（約40分）</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">20:25</p>
+        <p class="tl-place">御在所SA 出発</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">21:25</p>
+        <p class="tl-place">針テラス 着</p>
+        <p class="tl-note">10分休憩 ☕</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">21:35</p>
+        <p class="tl-place">針テラス 出発</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <p class="tl-time">22:35 頃</p>
+        <p class="tl-place">ボウルアロー八尾 着 — 解散</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="day-divider"></div>
+<div class="icon-strip"><span>🎳</span><span>🎳</span><span>🎳</span></div>
+<div class="day-divider"></div>
+
+<!-- PACKING LIST -->
+<div class="pack-section">
+  <div class="pack-header">
+    <p class="pack-title">🎒 持ち物リスト</p>
+  </div>
+
+  <!-- COST -->
+  <div class="cost-bar">
+    <span class="cost-label">1日あたりの負担額</span>
+    <span class="cost-amount">¥3,000</span>
+    <span class="cost-note">× 2日 = 合計 ¥6,000 ／ 1人</span>
+  </div>
+
+  <div class="pack-day-grid">
+    <!-- 共通 -->
+    <div class="pack-card">
+      <div class="pack-card-head">📦 共通（両日）</div>
+      <ul class="pack-list">
+        <li class="important">プロへのお土産 🎁</li>
+        <li>スマートフォン・モバイルバッテリー</li>
+        <li class="heart">楽しむ気持ち 💛</li>
+      </ul>
+    </div>
+    <!-- 服装・身の回り -->
+    <div class="pack-card">
+      <div class="pack-card-head">👕 服装・身の回り</div>
+      <ul class="pack-list">
+        <li>動きやすい服装</li>
+        <li>上着・羽織もの（館内冷え対策）</li>
+        <li>タオル</li>
+      </ul>
+    </div>
+    <!-- 観戦グッズ -->
+    <div class="pack-card">
+      <div class="pack-card-head">🎳 観戦グッズ</div>
+      <ul class="pack-list">
+        <li class="important">応援グッズ（タオル・うちわ等）</li>
+        <li>メモ帳・ペン（スコア記録用）</li>
+      </ul>
+    </div>
+    <!-- 車内・道中 -->
+    <div class="pack-card">
+      <div class="pack-card-head">🚗 車内・道中</div>
+      <ul class="pack-list">
+        <li>おやつ・ドリンク（道中用）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  東海オープン観戦ツアー 2026 ／ みんなで楽しもう！🎳
+</div>
+
+</body>
+</html>
+```
